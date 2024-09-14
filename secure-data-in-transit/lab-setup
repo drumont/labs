@@ -1,0 +1,7 @@
+// Bridge network 
+docker network create -d bridge ogee-bridge-net
+
+// Overlay network
+docker network create -d overlay --subnet=192.168.0.1/24 ogee-overlay
+
+docker run --network=ogee-bridge-net -itd --name=nginx-web -p 8080:80  nginx 
